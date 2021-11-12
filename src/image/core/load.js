@@ -136,7 +136,7 @@ function loadJPEG(data) {
   if (decodedExif.exif) {
     meta = getMetadata(decodedExif.exif);
   }
-  const jpeg = decodeJpeg(data, { useTArray: true, maxMemoryUsageInMB: 1024 });
+  const jpeg = decodeJpeg(data, { useTArray: true, maxMemoryUsageInMB: 8096 });
   let image = new Image(jpeg.width, jpeg.height, jpeg.data, { meta });
   if (meta && meta.tiff.tags.Orientation) {
     const orientation = meta.tiff.tags.Orientation;
